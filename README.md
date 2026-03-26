@@ -13,6 +13,28 @@ The objective was to simulate a real-world BI scenario, focusing on:
 
 This project goes beyond dashboards — it emphasizes analytical thinking and data reliability.
 
+## 📂 Dataset
+
+This project uses the **Brazilian E-Commerce Public Dataset by Olist**, available on Kaggle.
+
+- **Source:** [https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+- **Provider:** Olist
+
+The dataset includes:
+
+- Orders and order items
+- Payments
+- Customer reviews
+- Sellers and customers
+- Products and categories
+
+---
+
+## 📌 Notes
+
+- The dataset was cleaned and modeled for analytical purposes
+- Several data inconsistencies were identified and handled during the analysis
+- All business logic decisions are documented within this project
 ## 🚀 Project Highlights
 
 - 📊 Built **5 fully interactive dashboards** covering key business domains
@@ -157,19 +179,19 @@ Some canceled orders contain payments and delivery data
 
 ---
 
-## 📁 Repository Structure
+## 📊 Interactive Report
 
-/pbix
-  ecommerce_analysis.pbix
+Due to file size limitations, the Power BI file is hosted externally.
 
-/images
-  overview.png
-  seller.png
-  customer.png
-  experience.png
-  financial.png
+👉 [Download the full .pbix file](https://drive.google.com/file/d/1TgmR5HlYsVgVYD5WUuVzNmza6x8wfeqe/view?usp=drive_link)
 
-README.md
+## 📸 Dashboard Preview
+
+![Overview](images/Overview.png)
+![Seller](images/Seller.png)
+![Customer](images/Customer.png)
+![Experience](images/Experience.png)
+![Financial](images/Financial.png)
 
 
 ---
