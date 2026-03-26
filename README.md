@@ -1,214 +1,128 @@
-# 📊 E-commerce Analytics – End-to-End Power BI Project
+# 📊 E-commerce Analytics – Power BI Project
 
-## Project Overview
+## Overview
 
-An end-to-end Business Intelligence project analyzing an e-commerce dataset using Power BI.
+This project started as a simple question: *What can we learn from real e-commerce data beyond the obvious KPIs?*
 
-The objective was to simulate a real-world BI scenario, focusing on:
+I took the Brazilian Olist dataset and built an end-to-end BI workflow in Power BI. The goal wasn't just to create dashboards, it was to simulate a real-world analytics scenario where **data quality issues are real**, and **business logic matters as much as visuals**.
 
-- Data consistency and validation
-- Customer and seller behavior
-- Delivery performance
-- Financial integrity
-
-This project goes beyond dashboards — it emphasizes analytical thinking and data reliability.
+Along the way, I found inconsistencies (payments with no orders, canceled orders with delivery dates, among others), validated assumptions, and applied advanced DAX to detect anomalies.
 
 ---
 
 ## 📂 Dataset
 
-This project uses the **Brazilian E-Commerce Public Dataset by Olist**, available on Kaggle.
+**Brazilian E-Commerce Public Dataset by Olist**  
+🔗 [Kaggle link](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
-- **Source:** [https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-- **Provider:** Olist
-
-The dataset includes:
-- Orders and order items
-- Payments
-- Customer reviews
-- Sellers and customers
-- Products and categories
+Includes orders, payments, reviews, sellers, customers, and product data. A solid playground for realistic analysis.
 
 ---
 
-## 🚀 Project Highlights
+## 🚀 What I Did
 
-- 📊 Built **5 fully interactive dashboards** covering key business domains
-- 🔍 Identified **$162K in payments without linked orders** (775 orders with payment but no order items)
-- ⚠️ Detected **data inconsistencies**: canceled orders with delivery timestamps, delivered orders without delivery dates
-- 🧠 Applied **advanced DAX** for anomaly detection and validation
-- 📈 Revealed strong **Pareto effects**: ~12–16% of sellers generate ~80% of revenue
-
----
-
-## 🧭 Business Questions Addressed
-
-### Platform Performance
-- How is the platform performing overall?
-- How are revenue and orders evolving?
-
-### Seller Dynamics
-- Which sellers generate most of the revenue?
-- Is revenue concentrated?
-
-### Customer Behavior
-- Are customers returning or one-time buyers?
-- How is revenue distributed across customers?
-
-### Customer Experience
-- Does delivery impact review scores?
-- Are delays a key factor?
-
-### Financial Consistency
-- Do payments match order values?
-- Are there inconsistencies in transactions?
+- Built **5 interactive dashboards** covering sales, sellers, customers, delivery experience, and financial validation  
+- Found **$162K in payments without linked orders** — a data integrity red flag  
+- Detected inconsistencies in order status and payment records  
+- Used advanced DAX (`CALCULATE`, `FILTER`, `TREATAS`, `RANKX`) for validation and anomaly detection  
+- Identified strong **Pareto patterns**: ~15% of sellers generate ~80% of revenue; ~94% of customers are one-time buyers
 
 ---
 
-## 📊 Dashboard Structure
+## 🧠 Business Questions I Wanted to Answer
 
-### 1. Overview
-- Orders, revenue, and delivery trends
-- Geographic distribution
-- Delivered vs total orders
-
-### 2. Seller Performance
-- Revenue distribution (Pareto)
-- Seller contribution
-- Delivery vs reviews
-
-### 3. Customer Performance
-- One-time vs returning customers
-- Revenue concentration
-- Customer behavior
-
-### 4. Customer Experience Drivers
-- Delivery delays vs reviews
-- On-time vs late deliveries
-- Outliers
-
-### 5. Payments & Financial Validation
-- Payment vs order reconciliation
-- Detection of anomalies
-- Payment behavior
+- How is the platform performing over time?  
+- Which sellers drive most revenue? Is it concentrated?  
+- Do customers come back, or are they one-time buyers?  
+- Does delivery speed affect review scores?  
+- Are payments consistent with orders — or are there hidden gaps?
 
 ---
 
-## 🧩 Data Model
+## 📊 Dashboards at a Glance
 
-### Fact Tables
-- `Fact_Order_Items`
-- `Fact_Payment`
+| Dashboard | Focus |
+|-----------|-------|
+| **Overview** | Revenue trends, order volume, geographic distribution, delivered vs total orders |
+| **Seller Performance** | Revenue concentration (Pareto), seller contribution, delivery vs reviews |
+| **Customer Performance** | One-time vs returning, revenue distribution across customers |
+| **Customer Experience** | Delivery delays vs review scores, outliers |
+| **Financial Validation** | Payment vs order reconciliation, anomaly detection |
+
+---
+
+## 🧩 Data Model Design
+
+I used a **star schema** with separation between core data and analytical layers:
+
+**Fact tables**  
+- `Fact_Order_Items`  
+- `Fact_Payment`  
 - `Fact_Order_Review`
 
-### Dimension Tables
-- `Dim_Orders`
-- `Dim_Customer`
-- `Dim_Sellers`
-- `Dim_Products`
-- `Dim_Date`
+**Dimension tables**  
+- `Dim_Orders`, `Dim_Customer`, `Dim_Sellers`, `Dim_Products`, `Dim_Date`
 
-### Aggregated Tables
-- `Agg_Customer`
-- `Agg_Seller`
+**Aggregated tables** (for performance)  
+- `Agg_Customer`, `Agg_Seller`
 
 ---
 
-## ⚙️ Key Modeling Decisions
+## ⚠️ Data Challenges I Faced (and Solved)
 
-- Separation of core data and analytical layers
-- Aggregated tables for performance
-- Delivered vs All Orders logic
-- Static ranking for Pareto
-- Advanced DAX for validation
-
----
-
-## ⚠️ Data Challenges
-
-**Inconsistent Order Status**  
-Some canceled orders contain payments and delivery data. Order status alone is not a reliable indicator of delivery.  
-→ Used delivered date as true completion indicator. Canceled orders defined as those marked canceled AND not delivered.
-
-**Payments Without Orders**  
-775 orders have associated payments but no corresponding order items, representing $162.6K in unlinked revenue.  
-→ Extreme payment discrepancies are driven by orders lacking item records, not true financial anomalies.
-
-**Canceled Orders with Payments**  
-Out of 619 canceled orders with payment, 455 have valid order values.  
-→ Financial validation performed only on completed orders; canceled transactions with payments analyzed separately as edge cases.
-
-**Multiple Payments per Order**  
-→ Aggregated at order level before reconciliation.
-
-**Delivered Orders Without Delivery Date**  
-Some orders with status "delivered" have no delivery timestamp.  
-→ Handled via validation logic in DAX.
+| Issue | How I Handled It |
+|-------|------------------|
+| Canceled orders with payment & delivery data | Used *delivered date* as true completion indicator. Order status alone is not reliable — some canceled orders have delivery timestamps. |
+| Payments without matching orders | 775 cases, ~$162K. Extreme discrepancies are driven by orders lacking item records, not true financial anomalies. |
+| Canceled orders with payments | 455 orders, ~$105K impacted. Analyzed separately as edge cases, not included in core financial validation. |
+| Multiple payments per order | Aggregated at order level before reconciliation. |
 
 ---
 
 ## 📈 Key Insights
 
-**Performance**  
-- ~97% orders delivered  
-- Revenue growing steadily
-
-**Sellers**  
-- ~12–16% of sellers generate ~80% of revenue (Pareto effect)  
-- Seller performance evaluated based on completed (delivered) orders for consistency
-
-**Customers**  
-- ~94% one-time buyers  
-- ~3% repeat rate  
-- Customer metrics based on active customers to avoid distortion from inactive accounts
-
-**Experience**  
-- Delays reduce review scores. Drivers analysis restricted to delivered orders for valid comparisons.  
-- Moderate correlation between delivery time and review score: average review drops from 4.2 (0–4 days) to 3.0 (30+ days)
-
-**Financial**  
-- Most transactions show minimal difference between payment and order value  
-- Payment discrepancies vary by method; voucher transactions show highest variability  
-- Higher-value orders tend to be associated with higher installment counts
+- **~97%** of orders delivered  
+- Revenue growth is steady  
+- **~15% of sellers → ~80% of revenue**  
+- **~94%** of customers are one-time buyers (repeat rate ~3%)  
+- Delays correlate with lower review scores: average review drops from **4.2 (0–4 days)** to **3.0 (30+ days)**  
+- Most payments are consistent, but anomalies exist and were documented. Payment discrepancies vary by method — voucher transactions show the highest variability.
 
 ---
 
-## 🛠 Tools & Technologies
+## 🛠 Tools & Tech
 
-- Power BI
-- DAX (`CALCULATE`, `FILTER`, `TREATAS`, `EXCEPT`, `RANKX`)
-- Star schema modeling
-- Data validation techniques
+- Power BI  
+- DAX (`CALCULATE`, `FILTER`, `TREATAS`, `EXCEPT`, `RANKX`)  
+- Star schema modeling  
+- Data validation techniques  
 
 ---
 
-## 📊 Dashboard Previews
+## 📎 Notes on the Process
+
+*I used AI assistance for refining complex DAX logic and structuring documentation. All analytical decisions, validation steps, and business interpretations are my own.*
+
+---
+
+## 📸 Dashboard Previews
 
 | Overview | Seller Performance |
 |----------|--------------------|
-| ![Overview](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Overview.jpg) | ![Seller](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Seller.jpg) |
+| ![Overview](https://raw.githubusercontent.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/main/images/Overview.jpg) | ![Seller](https://raw.githubusercontent.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/main/images/Seller.jpg) |
 
 | Customer | Experience | Financial |
 |----------|------------|----------|
-| ![Customer](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Customer.jpg) | ![Experience](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Experience.jpg) | ![Financial](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Financial.jpg) |
+| ![Customer](https://raw.githubusercontent.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/main/images/Customer.jpg) | ![Experience](https://raw.githubusercontent.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/main/images/Experience.jpg) | ![Financial](https://raw.githubusercontent.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/main/images/Financial.jpg) |
 
 ---
 
-## 📥 Interactive Report
+## 📥 Access the Report
 
-Due to file size limitations, the Power BI file is hosted externally.
+Due to file size limits, the `.pbix` file is hosted externally:
 
-👉 [Download the full .pbix file](https://drive.google.com/file/d/1TgmR5HlYsVgVYD5WUuVzNmza6x8wfeqe/view?usp=drive_link)
-
----
-
-## 📌 Notes
-
-- The dataset was cleaned and modeled for analytical purposes
-- Several data inconsistencies were identified and handled during the analysis
-- All business logic decisions are documented within this project
-- **AI assistance:** I used AI tools to help refine complex DAX expressions and structure documentation. All analytical decisions, validation logic, and business interpretations are my own.
+👉 [Download the full Power BI file (Google Drive)](https://drive.google.com/file/d/1TgmR5HlYsVgVYD5WUuVzNmza6x8wfeqe/view?usp=drive_link)
 
 ---
 
-*This project simulates a real-world BI workflow, from data modeling and validation to delivering actionable insights.*
+*This project reflects how I approach BI work: curiosity-driven, detail-oriented, and focused on real business value.*
