@@ -187,11 +187,11 @@ Due to file size limitations, the Power BI file is hosted externally.
 
 ## 📸 Dashboard Preview
 
-![Overview]([images/Overview.png](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Overview.jpg))
-![Seller]([images/Seller.png](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Seller.jpg))
-![Customer]([images/Customer.png](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Customer.jpg))
-![Experience]([images/Experience.png](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Experience.jpg))
-![Financial]([images/Financial.png](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Financial.jpg))
+![Overview](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Overview.jpg)
+![Seller](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Seller.jpg)
+![Customer](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Customer.jpg)
+![Experience](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Experience.jpg)
+![Financial](https://github.com/amy165/Brazilian-E-Commerce-Public-Dataset-by-Olist/blob/main/images/Financial.jpg)
 
 
 ---
