@@ -85,7 +85,7 @@ I used a **star schema** with separation between core data and analytical layers
 - Revenue growth is steady  
 - **~15% of sellers → ~80% of revenue**  
 - **~94%** of customers are one-time buyers (repeat rate ~3%)  
-- Delays correlate with lower review scores: average review drops from **4.2 (0–4 days)** to **3.0 (30+ days)**  
+- Delays correlate with lower review scores: average review drops from **4.2 (0–4 days)** to **3.0 (30+ days)**. In remote regions such as Amazonas (AM) and Amapá (AP), longer delivery times do not significantly impact customer satisfaction, indicating that expectations are influenced by geographic and logistical constraints. 
 - Most payments are consistent, but anomalies exist and were documented. Payment discrepancies vary by method — voucher transactions show the highest variability.
 
 ---
