@@ -8,6 +8,8 @@ I took the Brazilian Olist dataset and built an end-to-end BI workflow in Power 
 
 Along the way, I found inconsistencies (payments with no orders, canceled orders with delivery dates, among others), validated assumptions, and applied advanced DAX to detect anomalies.
 
+This project evolved from a BI-focused analysis into a deeper data science exploration, extending the insights beyond dashboards into customer segmentation.
+
 ---
 
 ## 📂 Dataset
@@ -125,17 +127,18 @@ Due to file size limits, the `.pbix` file is hosted externally:
 
 ---
 
-## 📊 Data Science – Customer Segmentation
+## 📊 Data Science Extension – Customer Segmentation
 
-This project includes a data science approach to customer segmentation using:
+After completing the BI analysis, I extended the project using data science techniques to better understand customer behavior.
 
-- KMeans clustering (baseline)
-- Autoencoder + KMeans (improved approach)
+Two approaches were explored:
 
-👉 See full analysis here:
-📁 /DS
+- **KMeans clustering (baseline)** on engineered features  
+- **Autoencoder + KMeans (improved approach)** to capture non-linear patterns  
 
-[Go to Data Science analysis](./DS)
+This revealed that customers are not only segmented by value, but also by experience, including delivery issues, payment friction, and dissatisfaction.
+
+👉 [Explore full Data Science analysis](./DS)
 
 
 *This project reflects how I approach BI work: curiosity-driven, detail-oriented, and focused on real business value.*
