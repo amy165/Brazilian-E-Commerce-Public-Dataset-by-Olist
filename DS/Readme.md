@@ -18,3 +18,5 @@ Using an autoencoder improved cluster separation and helped identify different t
 ## Files
 - E-Commerce-KMeans.ipynb
 - E-Commerce-KMeans-NN.ipynb
+
+![Clusters](https://raw.githubusercontent.com/amy165/images/main/Brazilian-E-Commerce/CustomerSegmentationAutoencoderKMeans.png)
