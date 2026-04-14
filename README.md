@@ -135,5 +135,7 @@ This project includes a data science approach to customer segmentation using:
 👉 See full analysis here:
 📁 /DS
 
+[Go to Data Science analysis](./DS)
+
 
 *This project reflects how I approach BI work: curiosity-driven, detail-oriented, and focused on real business value.*
