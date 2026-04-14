@@ -30,7 +30,7 @@ Goal: Segment customers based on behavior, experience, and transaction patterns.
 - Clustering on latent space
 - PCA visualization
 
-  ![Autoencoder](https://raw.githubusercontent.com/amy165/images/main/Brazilian-E-Commerce/CustomerSegmentationAutoencoderKMeans.png)
+![Autoencoder](https://raw.githubusercontent.com/amy165/images/main/Brazilian-E-Commerce/CustomerSegmentationAutoencoderKMeans.png)
 
 ## Comparison
 
