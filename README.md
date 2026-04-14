@@ -125,4 +125,15 @@ Due to file size limits, the `.pbix` file is hosted externally:
 
 ---
 
+## 📊 Data Science – Customer Segmentation
+
+This project includes a data science approach to customer segmentation using:
+
+- KMeans clustering (baseline)
+- Autoencoder + KMeans (improved approach)
+
+👉 See full analysis here:
+📁 /DS
+
+
 *This project reflects how I approach BI work: curiosity-driven, detail-oriented, and focused on real business value.*
