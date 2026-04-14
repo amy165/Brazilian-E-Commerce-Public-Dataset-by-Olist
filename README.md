@@ -4,6 +4,8 @@
 
 This project started as a simple question: *What can we learn from real e-commerce data beyond the obvious KPIs?*
 
+This question guided both the BI analysis and the subsequent data science exploration.
+
 I took the Brazilian Olist dataset and built an end-to-end BI workflow in Power BI. The goal wasn't just to create dashboards, it was to simulate a real-world analytics scenario where **data quality issues are real**, and **business logic matters as much as visuals**.
 
 Along the way, I found inconsistencies (payments with no orders, canceled orders with delivery dates, among others), validated assumptions, and applied advanced DAX to detect anomalies.
