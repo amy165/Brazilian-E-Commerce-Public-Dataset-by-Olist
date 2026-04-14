@@ -61,5 +61,5 @@ The autoencoder-based approach improved cluster separation and allowed for bette
 
 ---
 ## Files
-- E-Commerce-KMeans.ipynb
-- E-Commerce-KMeans-NN.ipynb
+- E-Commerce-Customer-Segmentation-KMeans.ipynb
+- E-Commerce-Customer-Segmentation-Autoencoder-KMeans.ipynb
