@@ -62,6 +62,8 @@ The segmentation revealed that customer behavior is driven not only by value but
   - Payment problems
   - High-value dissatisfied customers
   - Healthy customers
+ 
+- Over 9,000 cases were identified where customers left negative reviews despite having no delivery issues, suggesting that dissatisfaction is not always driven by logistics, but potentially by product quality or unmet expectations.
 
 ---
 
