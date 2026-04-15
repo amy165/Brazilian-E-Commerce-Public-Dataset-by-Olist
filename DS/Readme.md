@@ -62,21 +62,21 @@ The segmentation revealed that customer behavior is driven not only by value but
 
 ## 👥 Customer Segments
 
-The improved clustering approach identified five distinct customer profiles:
+The improved clustering approach identified five distinct customer profiles, showing that behavior is driven not only by spending, but also by experience and operational issues:
 
-- **Logistics-critical customers**  
+- **Cluster 0 – Logistics-critical customers**  
   High delivery delays and very high negative reviews. These customers consistently experience poor delivery performance.
 
-- **Healthy customers**  
+- **Cluster 1 – Healthy customers**  
   Low delays, low negative reviews, and stable behavior. This is the baseline segment with a good overall experience.
 
-- **Frequent delay customers**  
+- **Cluster 2 – Customers frequently affected by delivery delays**  
   High probability of delays and moderate dissatisfaction. Delivery issues are present but less extreme than the critical group.
 
-- **High-value dissatisfied customers**  
-  High spending customers with low delays but high negative reviews, suggesting issues with product quality or expectations.
+- **Cluster 3 – High-value but dissatisfied customers**  
+  High spending customers with low delays but high negative reviews, suggesting issues with product quality or unmet expectations.
 
-- **Payment-issue customers**  
+- **Cluster 4 – Customers with high payment friction**  
   Customers with a high rate of payment-related issues, but otherwise normal experience in terms of delivery and reviews.
 
 ---
