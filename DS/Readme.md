@@ -44,6 +44,11 @@ The autoencoder-based approach improved cluster separation and revealed more mea
 
 It allowed better differentiation between types of customer issues (logistics, payments, satisfaction).
 
+While the autoencoder-based approach produced cleaner and more interpretable segments, 
+the baseline KMeans clustering revealed more granular patterns, including specific cases 
+of customer dissatisfaction not driven by delivery performance.
+
+This highlights how different approaches can be complementary depending on the analytical goal.
 
 ---
 
